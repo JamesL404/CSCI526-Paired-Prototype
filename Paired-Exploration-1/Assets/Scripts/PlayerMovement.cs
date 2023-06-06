@@ -14,13 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float jumpForce = 1200f;
     [SerializeField] LayerMask groundMask;
-<<<<<<< Updated upstream
     private float speedMax = 75f;
-=======
-    private float speedMax = 100f;
-    
     [SerializeField] private TMP_Text livesCounter;
->>>>>>> Stashed changes
 
     void Start()
     {
