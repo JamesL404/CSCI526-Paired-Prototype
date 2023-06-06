@@ -11,9 +11,9 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     [SerializeField] float horizontalMultiplier = 2;
 
-    [SerializeField] float jumpForce = 600f;
+    [SerializeField] float jumpForce = 1200f;
     [SerializeField] LayerMask groundMask;
-    private float speedMax = 100f;
+    private float speedMax = 75f;
 
     void Start()
     {
@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveForward = transform.forward * speed * Time.fixedDeltaTime;
         Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime * horizontalMultiplier;
         rb.MovePosition(rb.position + moveForward + horizontalMove);
+        
     }
 
 
