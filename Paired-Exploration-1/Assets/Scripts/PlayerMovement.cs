@@ -36,6 +36,14 @@ public class PlayerMovement : MonoBehaviour
         }
         Vector3 moveForward = transform.forward * speed * Time.fixedDeltaTime;
         Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime * horizontalMultiplier;
+        if ((rb.position + horizontalMove).x < -20)
+        {
+            horizontalMove.x = -20 - rb.position.x;
+        }
+        else if ((rb.position + horizontalMove).x > 20)
+        {
+            horizontalMove.x = 20 - rb.position.x; 
+        }
         rb.MovePosition(rb.position + moveForward + horizontalMove);
         
     }
