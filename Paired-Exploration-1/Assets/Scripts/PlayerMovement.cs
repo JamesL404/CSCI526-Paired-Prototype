@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     [SerializeField] float horizontalMultiplier = 2;
 
-    [SerializeField] float jumpForce = 1200f;
+    [SerializeField] float jumpForce = 4000f;
     [SerializeField] LayerMask groundMask;
     private float speedMax = 75f;
     [SerializeField] private TMP_Text livesCounter;
