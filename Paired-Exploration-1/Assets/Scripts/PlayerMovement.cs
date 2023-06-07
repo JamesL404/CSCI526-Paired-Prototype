@@ -20,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
     //Pause button
     private bool isPaused = false;
     
+    //Stalker Teleport - Each player start game with 1 teleport ability
+    private int teleportCount = 1;
+    private float minDistForTeleport = 0.0f;
+    private float maxDistForTeleport = 50.0f;
+    private float teleportDist = 40.0f;
+
     void Start()
     {
         lives = 3;
@@ -74,6 +80,13 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 1;
             isPaused = false;
         }
+        
+        //Stalker Teleport
+        if (Input.GetKeyDown((KeyCode.T)) /*&& teleportCount > 0*/)
+        {
+            teleportCount--;
+            Teleport();
+        }
 
     }
 
@@ -108,5 +121,22 @@ public class PlayerMovement : MonoBehaviour
     void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void Teleport()
+    {
+        //Shoot ray along z-axis
+        Ray zRay = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(zRay, out hit))
+        {
+            //Get current distance to nearest obstacle
+            float dist = hit.distance;
+            if (dist > minDistForTeleport && dist < maxDistForTeleport)
+            {
+                //Stalker Teleport!
+                transform.Translate( new Vector3(0,0,teleportDist));
+            }
+        }
     }
 }
