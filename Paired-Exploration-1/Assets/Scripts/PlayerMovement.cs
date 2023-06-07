@@ -16,7 +16,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     private float speedMax = 75f;
     [SerializeField] private TMP_Text livesCounter;
-
+    
+    //Pause button
+    private bool isPaused = false;
+    
     void Start()
     {
         lives = 3;
@@ -59,6 +62,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
         livesCounter.text = "Lives: "  + lives.ToString();
+        
+        //Pause game by pressing 'P'
+        if (Input.GetKeyDown(KeyCode.P) && !isPaused)
+        {
+            Time.timeScale = 0;
+            isPaused = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.P) && isPaused)
+        {
+            Time.timeScale = 1;
+            isPaused = false;
+        }
 
     }
 
