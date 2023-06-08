@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     private float speedMax = 75f;
     [SerializeField] private TMP_Text livesCounter;
-    
+
     //Pause button
     private bool isPaused = false;
     
@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     {
         lives = 3;
         alive = true;
+        isPaused = true;
+        Time.timeScale = 0;
     }
 
     void FixedUpdate()

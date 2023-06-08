@@ -610,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 42614419}
+  instructions: {fileID: 403687813}
 --- !u!4 &224862561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 349306583997062536, guid: 78f85b9e9b65bc14bb3474d38c40a918, type: 3}
@@ -982,7 +983,7 @@ MonoBehaviour:
     Pause:
     P
 
-'
+    Press P to play'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
